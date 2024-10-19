@@ -1,1 +1,0 @@
-# aladia_flutter_mobile_app
