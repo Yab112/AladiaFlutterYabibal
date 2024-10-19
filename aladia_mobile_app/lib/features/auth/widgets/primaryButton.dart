@@ -18,7 +18,7 @@ class PrimaryButton extends StatelessWidget {
           side: BorderSide(
               color: Color.fromARGB(255, 79, 78, 78),
               width: 1.0), // White border
-          padding: EdgeInsets.symmetric(vertical: 16), // Padding for height
+          padding: EdgeInsets.symmetric(vertical: 12), // Padding for height
           backgroundColor: Colors.transparent, // Transparent background
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8), // Slightly rounded corners

@@ -5,6 +5,7 @@ class WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     // Get the screen width for responsive font sizing
     double screenWidth = MediaQuery.of(context).size.width;
 
@@ -16,7 +17,7 @@ class WelcomeText extends StatelessWidget {
           style: TextStyle(
             fontSize: screenWidth * 0.05, // 6% of screen width for title size
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.primaryColor,
           ),
           textAlign: TextAlign.start,
         ),
@@ -25,8 +26,8 @@ class WelcomeText extends StatelessWidget {
           'Create or access your account from here', // Define your subtitle here
           style: TextStyle(
             fontSize:
-                screenWidth * 0.04, // 4% of screen width for subtitle size
-            color: Colors.white.withOpacity(0.8),
+                screenWidth * 0.04, 
+            color: theme.primaryColor,
           ),
           textAlign: TextAlign.start,
         ),
