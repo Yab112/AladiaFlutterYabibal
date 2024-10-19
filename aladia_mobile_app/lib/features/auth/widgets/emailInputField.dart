@@ -13,6 +13,8 @@ class CustomInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Container(
       width: double.infinity, // Full width for responsiveness
       padding: EdgeInsets.symmetric(horizontal: 16), // Padding to match button
@@ -21,10 +23,12 @@ class CustomInputField extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: Icon(icon, color: Colors.grey), // Icon with grey color
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.grey), // Hint text with grey color
+          hintStyle:
+              theme.inputDecorationTheme.hintStyle, // Hint text with grey color
           filled: true,
-          fillColor: Colors.white, // White background for the input field
-          contentPadding: EdgeInsets.symmetric(
+          fillColor: theme.inputDecorationTheme
+              .fillColor, // White background for the input field
+          contentPadding: const EdgeInsets.symmetric(
               vertical: 16), // Adjusted padding for height consistency
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10), // Rounded corners
@@ -35,13 +39,15 @@ class CustomInputField extends StatelessWidget {
             borderSide:
                 BorderSide(color: Colors.transparent), // Transparent border
           ),
+
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(
                 color: Colors.transparent), // Transparent border when focused
           ),
         ),
-        style: TextStyle(color: Colors.black), // Text input color
+        style: TextStyle(color: Colors.black),
+        //style: theme.textTheme.labelMedium, // Text input color
       ),
     );
   }

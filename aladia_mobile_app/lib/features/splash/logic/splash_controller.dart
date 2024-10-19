@@ -9,7 +9,7 @@ class SplashController {
   SplashController(this.context);
 
   void startSplash() {
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(
           context, AppRoutes.home); // Navigate to home screen
     });

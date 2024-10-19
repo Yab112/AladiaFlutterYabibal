@@ -5,17 +5,24 @@ class DividerOr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    // Determine gradient color based on theme brightness
+    final Color gradientColor = theme.brightness == Brightness.light
+        ? Colors.black // Use black in light theme
+        : Colors.white; // Use white in dark theme
+
     return Row(
       children: [
         // Left Side Gradient (from narrow to wider)
         Expanded(
           child: Container(
-            height: 3,
+            height: 5,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.0), // Narrow (low opacity)
-                  Colors.white.withOpacity(0.5), // Wider (higher opacity)
+                  gradientColor.withOpacity(0.0), // Narrow (low opacity)
+                  gradientColor.withOpacity(0.5), // Wider (higher opacity)
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -28,18 +35,21 @@ class DividerOr extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
             "Or",
-            style: TextStyle(color: Colors.white, fontSize: 16),
+            style: TextStyle(
+              color: gradientColor, // Text color based on theme
+              fontSize: 16,
+            ),
           ),
         ),
         // Right Side Gradient (from wider to narrow)
         Expanded(
           child: Container(
-            height: 3,
+            height: 5,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.5), // Wider (higher opacity)
-                  Colors.white.withOpacity(0.0), // Narrow (low opacity)
+                  gradientColor.withOpacity(0.5), // Wider (higher opacity)
+                  gradientColor.withOpacity(0.0), // Narrow (low opacity)
                 ],
                 begin: Alignment.centerLeft, // Start wider
                 end: Alignment.centerRight, // End narrow

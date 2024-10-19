@@ -14,7 +14,7 @@ class SocialLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen width to make the button responsive
+    final ThemeData theme = Theme.of(context);
     double screenWidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
@@ -23,11 +23,14 @@ class SocialLoginButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black, // Background color
+          backgroundColor: theme.elevatedButtonTheme.style?.backgroundColor
+              ?.resolve({}), // Background color
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5), // Rounded corners
             side: BorderSide(
-              color: Colors.white.withOpacity(0.1), // Light border
+              color: Color.fromARGB(255, 54, 54, 54).withOpacity(0.1),
+              // Light border
             ),
           ),
           padding:
@@ -51,7 +54,7 @@ class SocialLoginButton extends StatelessWidget {
               child: Text(
                 text,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: theme.primaryColor,
                   fontSize: 16, // Text size
                 ),
                 overflow:

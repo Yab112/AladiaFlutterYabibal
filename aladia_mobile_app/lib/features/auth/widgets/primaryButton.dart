@@ -8,6 +8,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Container(
       width: double.infinity, // Makes it responsive by taking the full width
       padding: EdgeInsets.symmetric(horizontal: 16),
@@ -25,8 +26,8 @@ class PrimaryButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(
-            color: Colors.white, // White text color
+          style: TextStyle(
+            color: theme.primaryColor, // White text color
             fontSize: 20, // Adjusted font size to fit the image example
           ),
         ),

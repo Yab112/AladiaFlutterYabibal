@@ -1,9 +1,14 @@
-import 'package:aladia_mobile_app/features/auth/widgets/appLogo.dart';
-import 'package:aladia_mobile_app/features/auth/widgets/welcomeText.dart';
+
+import 'package:aladia_mobile_app/features/auth/Bloc/theme_bloc.dart';
+import 'package:aladia_mobile_app/features/auth/Bloc/theme_event.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HeaderCard extends StatelessWidget {
+
   const HeaderCard({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +31,18 @@ class HeaderCard extends StatelessWidget {
           // AppLogo (Logo)
           AppLogo(),
           SizedBox(width: 16), // Spacing between logo and text
-
+          IconButton(
+                  icon: Icon(Icons.brightness_6), // Icon for theme toggle
+                  onPressed: () {
+                    // Trigger the ToggleTheme event
+                    context.read<ThemeBloc>().add(ToggleTheme());
+                  },
+                ),
           // Expanded to make text take the remaining space
           Expanded(
+
             child: WelcomeText(), // WelcomeText (Title and Subtitle)
+
           ),
         ],
       ),

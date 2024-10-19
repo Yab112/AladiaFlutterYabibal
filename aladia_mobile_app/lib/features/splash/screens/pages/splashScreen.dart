@@ -2,9 +2,9 @@ import 'package:aladia_mobile_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/splash_bloc.dart';
-import '../bloc/splash_event.dart';
-import '../bloc/splash_state.dart';
+import '../Bloc/splash_bloc.dart';
+import '../Bloc/splash_event.dart';
+import '../Bloc/splash_state.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
