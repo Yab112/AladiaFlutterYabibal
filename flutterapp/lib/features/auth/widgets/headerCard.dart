@@ -26,29 +26,45 @@ class HeaderCard extends StatelessWidget {
                   Color.fromARGB(230, 63, 63, 63),
                 ]
               : [
-                  Colors.white.withOpacity(0.8),
+                  Colors.white.withOpacity(1),
                   Color.fromARGB(230, 63, 63, 63),
                 ],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center, // Align vertically
+      child: Stack(
         children: [
-          // AppLogo (Logo)
-          AppLogo(),
-          SizedBox(width: 16), // Spacing between logo and text
-          IconButton(
-            icon: Icon(Icons.brightness_6), // Icon for theme toggle
-            onPressed: () {
-              // Trigger the ToggleTheme event
-              context.read<ThemeBloc>().add(ToggleTheme());
-            },
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center, // Align vertically
+            children: [
+              AppLogo(),
+              SizedBox(width: 16), // Spacing between logo and text
+              // Expanded to make text take the remaining space
+              Expanded(
+                child: WelcomeText(), // WelcomeText (Title and Subtitle)
+              ),
+            ],
           ),
-          // Expanded to make text take the remaining space
-          Expanded(
-            child: WelcomeText(), // WelcomeText (Title and Subtitle)
+          Positioned(
+            top: -8,
+            right: -8,
+            child: Container(
+            //   decoration: BoxDecoration(
+            //     color: isDarkTheme ? Colors.grey[800] : Colors.grey[200],
+            //     borderRadius: BorderRadius.circular(100),
+            //   ),
+              child: IconButton(
+                icon: Icon(
+                  isDarkTheme ? Icons.nightlight_round : Icons.wb_sunny,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                ),
+                onPressed: () {
+                  // Trigger the ToggleTheme event
+                  context.read<ThemeBloc>().add(ToggleTheme());
+                },
+              ),
+            ),
           ),
         ],
       ),
