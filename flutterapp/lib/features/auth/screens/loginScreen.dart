@@ -23,6 +23,7 @@ class Loginscreen extends StatelessWidget {
     return Scaffold(
       // Dynamic background color based on theme
       backgroundColor: theme.scaffoldBackgroundColor,
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -31,7 +32,7 @@ class Loginscreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // simple logic  here please add it to the theme
-              //same as the theme
+              
                 SizedBox(height: 20), // Adjust spacing as needed
                 HeaderCard(),
                 SizedBox(height: 30),
@@ -43,6 +44,7 @@ class Loginscreen extends StatelessWidget {
                     style: theme.textTheme.labelMedium,
                   ),
                 ),
+
                 const SizedBox(height: 20),
                 CustomInputField(
                   hintText: 'E-mail',
@@ -66,6 +68,7 @@ class Loginscreen extends StatelessWidget {
                     // Handle Google login
                   },
                 ),
+
                 const SizedBox(height: 30),
                 SocialLoginButton(
                   text: 'Sign in with Facebook',
@@ -74,6 +77,7 @@ class Loginscreen extends StatelessWidget {
                     // Handle Facebook login
                   },
                 ),
+
                 const SizedBox(height: 30),
                 SocialLoginButton(
                   text: 'Sign in with Apple',
@@ -82,6 +86,7 @@ class Loginscreen extends StatelessWidget {
                     // Handle Apple login
                   },
                 ),
+                
                 const SizedBox(height: 30),
                 TermsText(),
                 const SizedBox(height: 30),
