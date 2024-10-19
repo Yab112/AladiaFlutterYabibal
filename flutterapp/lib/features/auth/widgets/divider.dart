@@ -5,12 +5,9 @@ class DividerOr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    // Determine gradient color based on theme brightness
-    final Color gradientColor = theme.brightness == Brightness.light
-        ? Colors.black // Use black in light theme
-        : Colors.white; // Use white in dark theme
+    final Color dividerColor = Theme.of(context).brightness == Brightness.light
+        ? Colors.black
+        : Color(0xFFFFD700); // Black for light theme, Gold for dark theme
 
     return Row(
       children: [
@@ -21,8 +18,8 @@ class DividerOr extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  gradientColor.withOpacity(0.0), // Narrow (low opacity)
-                  gradientColor.withOpacity(0.5), // Wider (higher opacity)
+                  dividerColor.withOpacity(0.0), // Narrow (low opacity)
+                  dividerColor.withOpacity(0.5), // Wider (higher opacity)
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -36,7 +33,7 @@ class DividerOr extends StatelessWidget {
           child: Text(
             "Or",
             style: TextStyle(
-              color: gradientColor, // Text color based on theme
+              color: dividerColor, // Text color set to dividerColor
               fontSize: 16,
             ),
           ),
@@ -48,8 +45,8 @@ class DividerOr extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  gradientColor.withOpacity(0.5), // Wider (higher opacity)
-                  gradientColor.withOpacity(0.0), // Narrow (low opacity)
+                  dividerColor.withOpacity(0.5), // Wider (higher opacity)
+                  dividerColor.withOpacity(0.0), // Narrow (low opacity)
                 ],
                 begin: Alignment.centerLeft, // Start wider
                 end: Alignment.centerRight, // End narrow

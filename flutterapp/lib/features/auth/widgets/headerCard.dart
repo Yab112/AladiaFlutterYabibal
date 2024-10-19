@@ -26,12 +26,18 @@ class HeaderCard extends StatelessWidget {
                   Color.fromARGB(230, 63, 63, 63),
                 ]
               : [
-                  Colors.white.withOpacity(1),
+                  Colors.white.withOpacity(0.5),
                   Color.fromARGB(230, 63, 63, 63),
                 ],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),
+        border: !isDarkTheme
+            ? Border(
+                right: BorderSide(color: Colors.grey[300]!, width: 1),
+                bottom: BorderSide(color: Colors.grey[300]!, width: 1),
+              )
+            : null,
       ),
       child: Stack(
         children: [
