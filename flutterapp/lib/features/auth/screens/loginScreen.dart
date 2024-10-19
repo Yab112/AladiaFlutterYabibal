@@ -31,7 +31,7 @@ class Loginscreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // simple logic  here please add it to the theme
-            
+              //same as the theme
                 SizedBox(height: 20), // Adjust spacing as needed
                 HeaderCard(),
                 SizedBox(height: 30),
