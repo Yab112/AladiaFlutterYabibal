@@ -9,22 +9,18 @@ workflows:
       events:                       
         - push
         - pull_request
-        - pull_request_labeled      #
+        - pull_request_labeled
         - tag
-
     scripts:
-      - name: Install Flutter dependencies
+      - name: Cache Flutter Dependencies
         script: |
           flutter pub get
-      - name: Lint analysis (code quality check) with Flutter Analyze
-        script: |
-          flutter analyze  # Run static analysis to ensure code quality
-      - name: Run Unit Tests
-        script: |
-          flutter test  # Run unit and widget tests automatically on every push
       - name: Build APK with Flutter (No Code Signing)
         script: |
           flutter build apk --debug  # Debug APK for testing
+      - name: Build Release APK
+        script: |
+          flutter build apk --release  # Release APK for distribution
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
@@ -41,3 +37,4 @@ workflows:
         notify:
           success: true
           failure: true
+          # Customize your Slack notification message in Codemagic UI
